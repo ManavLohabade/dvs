@@ -104,6 +104,7 @@ const corsOptions = {
       'http://127.0.0.1:3000',
       'http://127.0.0.1:3001',
       'http://10.89.254.155:3000', // Network IP for mobile testing
+      'https://dvs-lyart.vercel.app', // Deployed frontend on Vercel
       process.env.FRONTEND_URL
     ].filter(Boolean);
     
@@ -138,6 +139,7 @@ app.use((req, res, next) => {
   if (origin && (
     origin.includes('localhost') || 
     origin.includes('127.0.0.1') ||
+    origin === 'https://dvs-lyart.vercel.app' ||
     origin === process.env.FRONTEND_URL
   )) {
     res.header('Access-Control-Allow-Origin', origin);
